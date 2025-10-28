@@ -12,13 +12,7 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        // Disable redirect untuk API authentication
-        $middleware->redirectGuestsTo(function ($request) {
-            if ($request->is('api/*')) {
-                return null; // Don't redirect API requests
-            }
-            return route('login');
-        });
+        $middleware->statefulApi();
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //

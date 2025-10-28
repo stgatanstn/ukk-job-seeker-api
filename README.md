@@ -1,61 +1,266 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 💼 UKK Job Seeker API
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+[![Laravel](https://img.shields.io/badge/Laravel-11.x-FF2D20?style=flat&logo=laravel)](https://laravel.com)
+[![PHP](https://img.shields.io/badge/PHP-8.2+-777BB4?style=flat&logo=php)](https://php.net)
+[![MySQL](https://img.shields.io/badge/MySQL-8.0+-4479A1?style=flat&logo=mysql&logoColor=white)](https://mysql.com)
 
-## About Laravel
+> **UKK 2025 - SMK Telkom Malang**  
+> RESTful API untuk platform pencarian kerja yang menghubungkan perusahaan dengan pencari kerja (Society).
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 📖 Tentang Project
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+**Job Seeker API** adalah backend REST API berbasis **Laravel 11** untuk sistem pencarian kerja. API ini mendukung dua jenis pengguna:
+- **HRD (Company)**: Dapat membuat profil perusahaan, posting lowongan pekerjaan, dan mengelola lamaran.
+- **Society (Job Seeker)**: Dapat membuat profil, menambahkan portfolio, mencari lowongan, dan melamar pekerjaan.
 
-## Learning Laravel
+Dilengkapi dengan autentikasi menggunakan **Laravel Sanctum** untuk keamanan API.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+---
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## ✨ Features
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### 🏢 **HRD/Company Features:**
+- ✅ Register & Login sebagai HRD
+- ✅ Membuat & update profil perusahaan
+- ✅ Membuat, edit, dan hapus lowongan pekerjaan
+- ✅ Melihat daftar pelamar per posisi
+- ✅ Approve/Reject lamaran (PENDING, ACCEPTED, REJECTED)
 
-## Laravel Sponsors
+### 👤 **Society/Job Seeker Features:**
+- ✅ Register & Login sebagai Society
+- ✅ Membuat & update profil pribadi
+- ✅ Menambahkan & mengelola portfolio
+- ✅ Melihat lowongan pekerjaan yang aktif
+- ✅ Apply lowongan pekerjaan
+- ✅ Track status lamaran
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+---
 
-### Premium Partners
+## 🧩 Tech Stack
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+- **Backend Framework**: Laravel 11
+- **Language**: PHP 8.2+
+- **Database**: MySQL 8.0+
+- **Authentication**: Laravel Sanctum (Bearer Token)
+- **API Testing**: Postman / Thunder Client
 
-## Contributing
+---
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## ⚙️ Installation
 
-## Code of Conduct
+### **Prerequisites:**
+- PHP >= 8.2
+- Composer
+- MySQL
+- XAMPP / Laragon (untuk local development)
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### **Installation Steps:**
+```bash
+# 1. Clone repository
+git clone https://github.com/stgatanstn/ukk-job-seeker-api.git
+cd ukk-job-seeker-api
 
-## Security Vulnerabilities
+# 2. Install dependencies
+composer install
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+# 3. Copy environment file
+cp .env.example .env
 
-## License
+# 4. Generate application key
+php artisan key:generate
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+# 5. Configure database di file .env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=job_seeker_db
+DB_USERNAME=root
+DB_PASSWORD=
+
+# 6. Create database
+# Buat database 'job_seeker_db' di phpMyAdmin atau MySQL
+
+# 7. Run migrations
+php artisan migrate
+
+# 8. Start development server
+php artisan serve
+```
+
+Server akan berjalan di: `http://127.0.0.1:8000`
+
+---
+
+## 📡 API Endpoints
+
+### **Authentication**
+| Method | Endpoint | Description | Auth |
+|--------|----------|-------------|------|
+| POST | `/api/register` | Register user (HRD/Society) | ✅ |
+| POST | `/api/login` | Login user | ✅ |
+
+### **HRD - Company Management**
+| Method | Endpoint | Description | Auth |
+|--------|----------|-------------|------|
+| POST | `/api/hrd/profilehrd` | Create/Update company profile | ✅ |
+| GET | `/api/companies/read-me` | Get my company | ✅ |
+| GET | `/api/companies/read` | Get all companies | ✅ |
+
+### **HRD - Position Management**
+| Method | Endpoint | Description | Auth |
+|--------|----------|-------------|------|
+| POST | `/api/hrd/insert` | Create job position | ✅ |
+| GET | `/api/hrd/get` | Get my positions | ✅ |
+| POST | `/api/hrd/update/{id}` | Update position | ✅ |
+| DELETE | `/api/hrd/delete/{id}` | Delete position | ✅ |
+
+### **Society - Profile & Portfolio**
+| Method | Endpoint | Description | Auth |
+|--------|----------|-------------|------|
+| POST | `/api/society/profile` | Create/Update profile | ✅ |
+| GET | `/api/societies/read-me` | Get my profile | ✅ |
+| POST | `/api/society/portofolio` | Add portfolio | ✅ |
+| GET | `/api/society/portofolio` | Get my portfolios | ✅ |
+| POST | `/api/society/portofolio/{id}` | Update portfolio | ✅ |
+| DELETE | `/api/society/portofolio/{id}` | Delete portfolio | ✅ |
+
+### **Job Application**
+| Method | Endpoint | Description | Auth |
+|--------|----------|-------------|------|
+| GET | `/api/hrd/get` | View available positions (Society) | ✅ |
+| POST | `/api/applied/create` | Apply for job | ✅ |
+| GET | `/api/applied/my` | Get my applications (Society) | ✅ |
+| GET | `/api/applied/by-position/{id}` | View applicants (HRD) | ✅ |
+| POST | `/api/applied/update-status/{id}` | Update application status (HRD) | ✅ |
+
+**Full API Documentation:** [API_DOCUMENTATION.md](API_DOCUMENTATION.md)
+
+---
+
+## 🗄️ Database Schema
+
+### **Main Tables:**
+- `users` - User authentication data
+- `company` - Company profiles (HRD)
+- `society` - Job seeker profiles
+- `available_position` - Job positions
+- `portofolio` - Society portfolios
+- `position_applied` - Job applications
+
+**Full Database Schema:** [DATABASE_SCHEMA.md](DATABASE_SCHEMA.md)
+
+---
+
+## 🧪 Testing
+
+### **Import Postman Collection:**
+1. Download: [UKK-JobSeeker-Postman.json](docs/UKK-JobSeeker-Postman.json)
+2. Import ke Postman
+3. Setup environment variable `token`
+4. Test semua endpoints!
+
+### **Quick Test Flow:**
+
+**HRD Flow:**
+```bash
+1. POST /api/register (role: HRD)
+2. POST /api/hrd/profilehrd (create company)
+3. POST /api/hrd/insert (create position)
+```
+
+**Society Flow:**
+```bash
+1. POST /api/register (role: Society)
+2. POST /api/society/profile (create profile)
+3. POST /api/society/portofolio (add portfolio)
+4. POST /api/applied/create (apply job)
+```
+
+---
+
+## 📁 Project Structure
+```
+ukk-job-seeker-api/
+├── app/
+│   ├── Http/Controllers/Api/
+│   │   ├── AuthController.php
+│   │   ├── CompanyController.php
+│   │   ├── SocietyController.php
+│   │   ├── PositionController.php
+│   │   ├── PortofolioController.php
+│   │   └── PositionAppliedController.php
+│   └── Models/
+│       ├── User.php
+│       ├── Company.php
+│       ├── Society.php
+│       ├── AvailablePosition.php
+│       ├── Portofolio.php
+│       └── PositionApplied.php
+├── database/
+│   └── migrations/
+├── routes/
+│   ├── api.php
+│   └── web.php
+├── .env.example
+└── README.md
+```
+
+---
+
+## 🔐 Authentication
+
+API menggunakan **Laravel Sanctum** dengan Bearer Token.
+
+**Cara menggunakan:**
+1. Register atau Login untuk mendapatkan token
+2. Simpan token dari response
+3. Gunakan token di header:
+```
+   Authorization: Bearer YOUR_TOKEN_HERE
+```
+
+---
+
+## 🎓 Development Notes
+
+- Project ini dibuat untuk **UKK (Uji Kompetensi Keahlian) 2025**
+- Mengikuti design pattern **MVC** dan **RESTful API** best practices
+- Database design mengikuti **normalisasi** dan **relational database** principles
+- API responses mengikuti **standard JSON format**
+
+---
+
+## 👨‍💻 Author
+
+**Gilson Aristo Nagatan**  
+RPL XII - SMK Telkom Malang  
+UKK 2025 - Rekayasa Perangkat Lunak
+
+📧 Email: [gilson.dokumenkerja@gmail.com]  
+🔗 GitHub: [@stgatanstn](https://github.com/stgatanstn)
+
+---
+
+## 📄 License
+
+This project is open-sourced under the [MIT License](LICENSE).
+
+---
+
+## 🙏 Acknowledgments
+
+- **Laravel Framework** - Backend framework
+- **SMK Telkom Malang** - Educational institution
+- **Pembimbing UKK** - Guidance and support
+
+---
+
+## 📞 Support
+
+Jika ada pertanyaan atau issue, silakan buka [GitHub Issues](https://github.com/stgatanstn/ukk-job-seeker-api/issues).
+
+---
+
+**⭐ Jika project ini membantu, berikan star di GitHub!**
